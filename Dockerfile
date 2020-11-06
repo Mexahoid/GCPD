@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
 WORKDIR /GCPD
 
 # copy csproj and restore as distinct layers
-COPY *.csproj .
+COPY /GCPD/*.csproj .
 RUN dotnet restore
 
 # copy and publish app and libraries
