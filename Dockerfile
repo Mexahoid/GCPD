@@ -7,6 +7,7 @@ COPY /GCPD/* ./GCPD/
 COPY /Interfaces/* ./Interfaces/
 COPY /ModelsLibrary/* ./ModelsLibrary/
 COPY /TestService/* ./TestService/
+COPY *.sln .
 # WORKDIR /source/GCPD
 
 RUN dotnet restore GCPD.sln
