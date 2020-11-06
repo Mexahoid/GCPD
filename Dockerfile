@@ -7,7 +7,7 @@ COPY /GCPD/*.csproj .
 COPY /Interfaces/*.csproj .
 COPY /ModelsLibrary/*.csproj .
 COPY /TestService/*.csproj .
-RUN dotnet restore
+RUN dotnet restore GCPD.csproj
 
 # copy and publish app and libraries
 COPY . .
