@@ -16,7 +16,7 @@ namespace TestLibrary
             {
                 _res.Add(new CompanyTypeModel
                 {
-                    Company = $"Одиночный тестовый тип {i + 1}",
+                    Company = $"Одиночный тестовый тип {i + 20}",
                     ID = i
                 });
             }
