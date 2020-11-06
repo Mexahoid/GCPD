@@ -24,10 +24,10 @@ namespace GCPD.Controllers
             _logger = logger;
         }
 
-        [HttpGet] 
+        [HttpGet]
         [Route("companytypes")]
         public object[] CompanyTypesGetAll()
-        {   
+        {
             PagedResult<CompanyTypeModel> t = _service.CompanyTypesGetAll();
             return GetPagedResultAsArray(t);
         }

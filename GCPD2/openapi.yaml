@@ -1,0 +1,79 @@
+swagger: '2.0'
+info:
+  version: v1
+  title: My API
+host: gcpd-294815.appspot.com
+paths:
+  /LaborExchange/api/companytypes:
+    get:
+      tags:
+        - LaborExchange
+      operationId: CompanyTypesGetAll
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          schema:
+            uniqueItems: false
+            type: array
+            items:
+              type: object
+  '/LaborExchange/api/companytype/id/{id}':
+    get:
+      tags:
+        - LaborExchange
+      operationId: CompanyTypesGetById
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            uniqueItems: false
+            type: array
+            items:
+              type: object
+  '/LaborExchange/api/companytypes/page/{page}/pagecount/{pagecount}':
+    get:
+      tags:
+        - LaborExchange
+      operationId: CompanyTypesGetByPageAndPagecount
+      consumes: []
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - name: page
+          in: path
+          required: true
+          type: integer
+          format: int32
+        - name: pagecount
+          in: path
+          required: true
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            uniqueItems: false
+            type: array
+            items:
+              type: object
+definitions: {}
