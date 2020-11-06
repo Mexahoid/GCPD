@@ -13,7 +13,7 @@ using ModelsLibrary;
 namespace GCPD.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/api")]
     public class LaborExchangeController : ControllerBase
     {
         private readonly ICompanyTypeService _service = new TestLibrary.TestService();
@@ -25,7 +25,7 @@ namespace GCPD.Controllers
         }
 
         [HttpGet] 
-        [Route("")]
+        [Route("companytypes")]
         public object[] CompanyTypesGetAll()
         {   
             PagedResult<CompanyTypeModel> t = _service.CompanyTypesGetAll();
@@ -33,7 +33,7 @@ namespace GCPD.Controllers
         }
 
         [HttpGet]
-        [Route("id/{id:int}")]
+        [Route("companytype/id/{id:int}")]
         public object[] CompanyTypesGetById(int id)
         {
             var t = _service.CompanyTypesGetById(id);
@@ -41,7 +41,7 @@ namespace GCPD.Controllers
         }
 
         [HttpGet]
-        [Route("page/{page:int}/pagecount/{pagecount:int}")]
+        [Route("companytypes/page/{page:int}/pagecount/{pagecount:int}")]
         public object[] CompanyTypesGetByPageAndPagecount(int page, int pagecount)
         {
             var t = _service.CompanyTypesGetByPageAndPagecount(page, pagecount);
