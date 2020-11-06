@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLibrary", "TestService\TestLibrary.csproj", "{F7E31E1A-5A57-405E-BD80-BD77B9308A41}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GCPD", "GCPD2\GCPD.csproj", "{0F5A61DC-4C5A-426F-A125-A3F0C5A85124}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GCPD", "GCPD\GCPD.csproj", "{0F5A61DC-4C5A-426F-A125-A3F0C5A85124}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
