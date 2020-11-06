@@ -11,7 +11,7 @@ RUN dotnet restore GCPD.csproj
 
 # copy and publish app and libraries
 COPY . .
-RUN dotnet publish -c release -o /app --no-restore
+RUN dotnet publish -c release -o /app --no-restore GCPD.csproj
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/core/runtime:2.1
