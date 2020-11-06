@@ -9,12 +9,12 @@ COPY /ModelsLibrary/* ./ModelsLibrary/
 COPY /TestService/* ./TestService/
 # WORKDIR /source/GCPD
 
-RUN dotnet restore #GCPD.csproj
+RUN dotnet restore GCPD.sln
 
 # copy and publish app and libraries
 # COPY . ../.
 # WORKDIR /source
-RUN dotnet publish -c release -o /app --no-restore 
+RUN dotnet publish -c release -o /app --no-restore GCPD.sln
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/core/runtime:2.1
