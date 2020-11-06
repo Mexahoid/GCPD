@@ -6,15 +6,15 @@ using ModelsLibrary;
 
 namespace TestLibrary
 {
-    public class TestService : ICTService
+    public class TestService : ICompanyTypeService
     {
-        List<CompanyTypeModel> res = new List<CompanyTypeModel>();
+        private readonly List<CompanyTypeModel> _res = new List<CompanyTypeModel>();
 
         public TestService()
         {
             for (int i = 0; i < 18; i++)
             {
-                res.Add(new CompanyTypeModel
+                _res.Add(new CompanyTypeModel
                 {
                     Company = $"Одиночный тестовый тип {i + 1}",
                     ID = i
@@ -22,39 +22,41 @@ namespace TestLibrary
             }
         }
 
-
-        public PagedResult<CompanyTypeModel> GetCTs(int id = -1)
+        public PagedResult<CompanyTypeModel> CompanyTypesGetById(int id)
         {
-
             var rr = new PagedResult<CompanyTypeModel>();
             List<CompanyTypeModel> tres = new List<CompanyTypeModel>();
-
-            if (id == -1)
-                tres = res;
-            else
-                foreach (var item in res)
+            foreach (var item in _res)
+            {
+                if (item.ID == id)
                 {
-                    if (item.ID == id)
-                    {
-                        tres.Add(item);
-                        break;
-                    }
+                    tres.Add(item);
+                    break;
                 }
-
-
+            }
             rr.Page = tres.ToArray();
             rr.PageCount = 1;
             return rr;
 
         }
 
+        public PagedResult<CompanyTypeModel> CompanyTypesGetAll()
+        {
+            var rr = new PagedResult<CompanyTypeModel>
+            {
+                Page = _res.ToArray(),
+                PageCount = 1
+            };
+            return rr;
 
-        public PagedResult<CompanyTypeModel> GetPagedCTs(int page, int pagecount)
+        }
+
+        public PagedResult<CompanyTypeModel> CompanyTypesGetByPageAndPagecount(int page, int pagecount)
         {
             var rr = new PagedResult<CompanyTypeModel>();
-            var ttx = res.Skip((page - 1) * pagecount).Take(pagecount).ToArray();
+            var ttx = _res.Skip((page - 1) * pagecount).Take(pagecount).ToArray();
             rr.Page = ttx;
-            rr.PageCount = res.Count() / pagecount + 1;
+            rr.PageCount = _res.Count() / pagecount + 1;
             return rr;
         }
     }
