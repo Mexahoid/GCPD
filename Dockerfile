@@ -3,10 +3,10 @@ FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
 WORKDIR /source
 
 # copy csproj and restore as distinct layers
-COPY /GCPD/* ./GCPD
-COPY /Interfaces/* ./Interfaces
-COPY /ModelsLibrary/* ./ModelsLibrary
-COPY /TestService/* ./TestService
+COPY /GCPD/* ./GCPD/
+COPY /Interfaces/* ./Interfaces/
+COPY /ModelsLibrary/* ./ModelsLibrary/
+COPY /TestService/* ./TestService/
 WORKDIR /source/GCPD
 RUN dotnet restore GCPD.csproj
 
