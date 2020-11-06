@@ -28,14 +28,8 @@ namespace GCPD.Controllers
         [Route("")]
         public object[] CompanyTypesGetAll()
         {   
-            
             PagedResult<CompanyTypeModel> t = _service.CompanyTypesGetAll();
-            List<object> objs = new List<object>
-            {
-                t.PageCount, 
-                t.Page
-            };
-            return objs.ToArray();
+            return GetPagedResultAsArray(t);
         }
 
         [HttpGet]
@@ -43,12 +37,7 @@ namespace GCPD.Controllers
         public object[] CompanyTypesGetById(int id)
         {
             var t = _service.CompanyTypesGetById(id);
-            List<object> objs = new List<object>
-            {
-                t.PageCount, 
-                t.Page
-            };
-            return objs.ToArray();
+            return GetPagedResultAsArray(t);
         }
 
         [HttpGet]
@@ -56,9 +45,14 @@ namespace GCPD.Controllers
         public object[] CompanyTypesGetByPageAndPagecount(int page, int pagecount)
         {
             var t = _service.CompanyTypesGetByPageAndPagecount(page, pagecount);
+            return GetPagedResultAsArray(t);
+        }
+
+        private object[] GetPagedResultAsArray<T>(PagedResult<T> t)
+        {
             List<object> objs = new List<object>
             {
-                t.PageCount, 
+                t.PageCount,
                 t.Page
             };
             return objs.ToArray();
