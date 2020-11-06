@@ -4,6 +4,9 @@ WORKDIR /GCPD
 
 # copy csproj and restore as distinct layers
 COPY /GCPD/*.csproj .
+COPY /Interfaces/*.csproj .
+COPY /ModelsLibrary/*.csproj .
+COPY /TestService/*.csproj .
 RUN dotnet restore
 
 # copy and publish app and libraries
