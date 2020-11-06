@@ -7,13 +7,14 @@ COPY /GCPD/* ./GCPD/
 COPY /Interfaces/* ./Interfaces/
 COPY /ModelsLibrary/* ./ModelsLibrary/
 COPY /TestService/* ./TestService/
-WORKDIR /source/GCPD
-RUN dotnet restore GCPD.csproj
+# WORKDIR /source/GCPD
+
+RUN dotnet restore #GCPD.csproj
 
 # copy and publish app and libraries
-COPY . ../.
-WORKDIR /source
-RUN dotnet publish -c release -o /app --no-restore # GCPD.csproj
+# COPY . ../.
+# WORKDIR /source
+RUN dotnet publish -c release -o /app --no-restore 
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/core/runtime:2.1
