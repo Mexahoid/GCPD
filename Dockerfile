@@ -3,16 +3,16 @@ FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
 WORKDIR /source
 
 # copy csproj and restore as distinct layers
-COPY /GCPD/* ./GCPD/
-COPY /Interfaces/* ./Interfaces/
-COPY /ModelsLibrary/* ./ModelsLibrary/
-COPY /TestService/* ./TestService/
-CD ./GCPD/
+COPY /GCPD/* ./GCPD
+COPY /Interfaces/* ./Interfaces
+COPY /ModelsLibrary/* ./ModelsLibrary
+COPY /TestService/* ./TestService
+WORKDIR /source/GCPD
 RUN dotnet restore GCPD.csproj
 
 # copy and publish app and libraries
 COPY . ../.
-CD ..
+WORKDIR /source
 RUN dotnet publish -c release -o /app --no-restore # GCPD.csproj
 
 # final stage/image
