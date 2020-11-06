@@ -1,6 +1,6 @@
 # https://hub.docker.com/_/microsoft-dotnet-core
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
-WORKDIR .
+WORKDIR /GCPD
 
 # copy csproj and restore as distinct layers
 COPY *.csproj .
