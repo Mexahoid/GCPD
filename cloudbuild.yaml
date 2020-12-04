@@ -3,4 +3,8 @@ steps:
   args: ['build', '-t', 'gcr.io/gcpd-294815/github.com', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/gcpd-294815/github.com']
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'bash'
+  args: ['-c', 'gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy']
+timeout: '1600s'
 images: ['gcr.io/gcpd-294815/github.com']
