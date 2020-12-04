@@ -3,7 +3,7 @@ steps:
   args: ['build', '-t', 'gcr.io/gcpd-294815/github.com', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/gcpd-294815/github.com']
-- name: 'REMOVE KEBAB'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
   args: ['rm Dockerfile']
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
