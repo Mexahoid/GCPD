@@ -18,7 +18,7 @@ RUN dotnet restore GCPD.sln
 # WORKDIR /source
 RUN dotnet publish -c release -o /app --no-restore GCPD.sln
 
-# final stage/image
+# final stage/image s
 # FROM gcr.io/google-appengine/aspnetcore:2.1.1
 FROM mcr.microsoft.com/dotnet/core/runtime:2.1
 WORKDIR /app
