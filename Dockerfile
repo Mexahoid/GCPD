@@ -1,4 +1,4 @@
-# https://hub.docker.com/_/microsoft-dotnet-core
+# https://hub.docker.com/_/microsoft-dotnet-coreasds
 # FROM gcr.io/google-appengine/aspnetcore:2.1.1
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
 WORKDIR /source
