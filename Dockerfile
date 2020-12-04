@@ -1,6 +1,6 @@
 # https://hub.docker.com/_/microsoft-dotnet-core
-# FROM gcr.io/google-appengine/aspnetcore:2.1.1
-FROM mcr.microsoft.com/dotnet/core/sdk:2.1.1 AS build
+FROM gcr.io/google-appengine/aspnetcore:2.1.1
+# FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
 WORKDIR /source
 
 # copy csproj and restore as distinct layers
@@ -19,7 +19,8 @@ RUN dotnet restore GCPD.sln
 RUN dotnet publish -c release -o /app --no-restore GCPD.sln
 
 # final stage/image
-FROM mcr.microsoft.com/dotnet/core/runtime:2.1.1
+FROM gcr.io/google-appengine/aspnetcore:2.1.1
+# FROM mcr.microsoft.com/dotnet/core/runtime:2.1.1
 WORKDIR /app
 COPY --from=build /app .
 ENTRYPOINT ["dotnet", "GCPD.dll"]
