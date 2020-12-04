@@ -5,7 +5,7 @@ steps:
   args: ['push', 'gcr.io/gcpd-294815/github.com']
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
-  args: ['rm Dockerfile']
+  args: ['rm /workspace/Dockerfile']
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: 'bash'
   args: ['-c', 'gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy']
