@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Interfaces;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ModelsLibrary;
@@ -25,6 +26,7 @@ namespace GCPD.Controllers
         }
 
         [HttpGet]
+        [EnableCors("defaultCORSPolicy")]
         [Route("companytypes")]
         public object[] CompanyTypesGetAll()
         {
@@ -33,6 +35,7 @@ namespace GCPD.Controllers
         }
 
         [HttpGet]
+        [EnableCors("defaultCORSPolicy")]
         [Route("companytype/id/{id:int}")]
         public object[] CompanyTypesGetById(int id)
         {
@@ -41,6 +44,7 @@ namespace GCPD.Controllers
         }
 
         [HttpGet]
+        [EnableCors("defaultCORSPolicy")]
         [Route("companytypes/page/{page:int}/pagecount/{pagecount:int}")]
         public object[] CompanyTypesGetByPageAndPagecount(int page, int pagecount)
         {
