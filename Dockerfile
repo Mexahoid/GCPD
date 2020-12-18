@@ -8,7 +8,7 @@ COPY /GCPD/* ./GCPD/
 COPY /Interfaces/* ./Interfaces/
 COPY /ModelsLibrary/* ./ModelsLibrary/
 COPY /TestService/* ./TestService/
-COPY /FrontEnd/* ./FrontEnd/
+# COPY /FrontEnd/* ./FrontEnd/
 COPY *.sln .
 # WORKDIR /source/GCPD
 
