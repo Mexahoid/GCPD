@@ -26,7 +26,7 @@ namespace GCPD.Controllers
         }
 
         [HttpGet]
-        [EnableCors("defaultCORSPolicy")]
+        [EnableCors]
         [Route("companytypes")]
         public object[] CompanyTypesGetAll()
         {
@@ -35,7 +35,7 @@ namespace GCPD.Controllers
         }
 
         [HttpGet]
-        [EnableCors("defaultCORSPolicy")]
+        [EnableCors]
         [Route("companytype/id/{id:int}")]
         public object[] CompanyTypesGetById(int id)
         {
@@ -44,7 +44,7 @@ namespace GCPD.Controllers
         }
 
         [HttpGet]
-        [EnableCors("defaultCORSPolicy")]
+        [EnableCors]
         [Route("companytypes/page/{page:int}/pagecount/{pagecount:int}")]
         public object[] CompanyTypesGetByPageAndPagecount(int page, int pagecount)
         {
